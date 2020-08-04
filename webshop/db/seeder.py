@@ -1,4 +1,4 @@
-from ..db.models import Category, Products
+from models import Category, Products
 from random import choice
 import random
 import os
