@@ -19,6 +19,9 @@ def webhook():
 
 
 if __name__ == '__main__':
+    import time
+    bot.remove_webhook()
+    time.sleep(1)
     bot.set_webhook(
         url=config.WEBHOOK_URL,
         certificate=open('webhook_cert.pem', 'r')
