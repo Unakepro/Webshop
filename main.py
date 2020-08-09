@@ -13,6 +13,7 @@ def webhook():
         json_string = request.get_data().decode('utf-8')
         update = Update.de_json(json_string)
         bot.process_new_updates([update])
+        return ''
     else:
         abort(403)
 
