@@ -1,4 +1,4 @@
-from webshop.bot.main import bot, start_bot
+from webshop.bot.main import bot
 from webshop.bot import config
 from flask import Flask, request, abort
 from flask_restful import Api
