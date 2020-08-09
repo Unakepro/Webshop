@@ -29,8 +29,3 @@ if __name__ == '__main__':
         certificate=open('webhook_cert.pem', 'r')
     )
     app.run(debug=True)
-
-)
-
-
-
