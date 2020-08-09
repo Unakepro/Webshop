@@ -7,7 +7,7 @@ from telebot.types import Update
 
 app = Flask(__name__)
 
-
+bot.remove_webhook()
 start_bot()
 
 
