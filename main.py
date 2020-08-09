@@ -20,7 +20,6 @@ def webhook():
 if __name__ == '__main__':
     import time
 
-    app.run(debug=True)
 
     bot.remove_webhook()
     time.sleep(1)
