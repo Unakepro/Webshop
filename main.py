@@ -27,4 +27,5 @@ if __name__ == '__main__':
         url=config.WEBHOOK_URL,
         certificate=open('webhook_cert.pem', 'r')
     )
+    webhook()
     app.run(debug=True)
