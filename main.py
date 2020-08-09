@@ -1,4 +1,4 @@
-from webshop.bot.main import bot, start_bot
+from webshop.bot.main import bot
 from webshop.bot import config
 from flask import Flask, request, abort
 from flask_restful import Api
@@ -22,6 +22,7 @@ if __name__ == '__main__':
 
     bot.remove_webhook()
     time.sleep(1)
+
     bot.set_webhook(
         config.WEBHOOK_URL,
         certificate=open('webhook_cert.pem', 'r')
