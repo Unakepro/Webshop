@@ -15,7 +15,7 @@ def webhook():
         bot.process_new_updates([update])
         return ''
     else:
-        abort(403
+        abort(403)
 
 if __name__ == '__main__':
     import time
