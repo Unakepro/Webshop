@@ -29,10 +29,10 @@ if __name__ == '__main__':
     app.register_blueprint(blue_category_post)
 
     bot.remove_webhook()
-    # time.sleep(1)
-    #
-    # bot.set_webhook(
-    #     config.WEBHOOK_URL,
-    #     certificate=open('webhook_cert.pem', 'r')
-    # )
+    time.sleep(1)
+
+    bot.set_webhook(
+        config.WEBHOOK_URL,
+        certificate=open('webhook_cert.pem', 'r')
+    )
     app.run(debug=True)
