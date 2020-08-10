@@ -1,8 +1,10 @@
 from webshop.bot.main import bot
 from webshop.bot import config
-from flask import Flask, request, abort
+from flask import Flask, request, abort, blueprints
 from flask_restful import Api
 from telebot.types import Update
+from webshop.api.products import blue_products, blue_products_post
+from webshop.api.category import blue_category, blue_category_post
 
 app = Flask(__name__)
 
@@ -21,11 +23,16 @@ def webhook():
 if __name__ == '__main__':
     import time
 
-    bot.remove_webhook()
-    time.sleep(1)
+    app.register_blueprint(blue_products)
+    app.register_blueprint(blue_category)
+    app.register_blueprint(blue_products_post)
+    app.register_blueprint(blue_category_post)
 
-    bot.set_webhook(
-        config.WEBHOOK_URL,
-        certificate=open('webhook_cert.pem', 'r')
-    )
+    bot.remove_webhook()
+    # time.sleep(1)
+    #
+    # bot.set_webhook(
+    #     config.WEBHOOK_URL,
+    #     certificate=open('webhook_cert.pem', 'r')
+    # )
     app.run(debug=True)
