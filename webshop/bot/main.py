@@ -175,11 +175,11 @@ def add_my_cart(call):
 
     if not MyCart.objects(user_id=call.from_user.id, product_id=product_id):
         MyCart.objects.create(user_id=call.from_user.id, product_id=product_id)
-        bot.answer_callback_query(callback_query_id=call.message.chat.id, text="Товар успешно добавлен в корзину",
+        bot.answer_callback_query(callback_query_id=call.id, text="Товар успешно добавлен в корзину",
                                   show_alert=False)
     else:
         MyCart.objects(user_id=call.from_user.id, product_id=product_id).update(inc__value=1)
-        bot.answer_callback_query(callback_query_id=call.message.chat.id, text="Товар успешно добавлен в корзину",
+        bot.answer_callback_query(callback_query_id=call.id, text="Товар успешно добавлен в корзину",
                                   show_alert=False)
 
 
