@@ -7,9 +7,6 @@ from webshop.api.category import blue_category, blue_category_post
 
 app = Flask(__name__)
 
-@app.route('/tg/lol')
-def h():
-    return "g"
 
 @app.route(config.WEBHOOK_PATH, methods=['POST'])
 def webhook():
@@ -27,7 +24,7 @@ if __name__ == '__main__':
 
     app.register_blueprint(blue_products)
     app.register_blueprint(blue_category)
-    app.register_blueprint(blue_products_post)
+    app.register_blueprint(blue_products_post, url_prefix='hello')
     app.register_blueprint(blue_category_post)
 
     bot.remove_webhook()
