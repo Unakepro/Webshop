@@ -58,7 +58,8 @@ def post():
 
             category = res['category']
             del res['category']
-            Products.objects.create(**res, category=ObjectId(category))
+            with open("../db/images/routers/asus.jpg") as image:
+                Products.objects.create(**res, category=ObjectId(category), image=image)
         except ValidationError as err:
             res = err.messages
         return res

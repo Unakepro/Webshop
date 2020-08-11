@@ -213,13 +213,18 @@ def add_one(call):
 @bot.callback_query_handler(func=lambda call: call.data.endswith("_-1"))
 def minus_one(call):
     add_id = call.data[0:-3]
-    if MyCart.objects(product_id=add_id)[0].value < 1:
+    try:
+        if MyCart.objects(product_id=add_id)[0].value < 1:
+            bot.answer_callback_query(callback_query_id=call.id, text="Товара нет в корзине",
+                                      show_alert=False)
+        else:
+            MyCart.objects(product_id=add_id).update(dec__value=1)
+            bot.answer_callback_query(callback_query_id=call.id, text="Товара на 1 меньше",
+                                      show_alert=False)
+    except:
         bot.answer_callback_query(callback_query_id=call.id, text="Товара нет в корзине",
-                                  show_alert=False)
-    else:
-        MyCart.objects(product_id=add_id).update(dec__value=1)
-        bot.answer_callback_query(callback_query_id=call.id, text="Товара на 1 меньше",
-                              show_alert=False)
+                                 show_alert=False)
+
 
 @bot.callback_query_handler(func=lambda call: call.data == "done")
 def save_cart(call):
