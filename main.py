@@ -1,12 +1,12 @@
-from webshop.bot.main import bot
 from webshop.bot import config
-from flask import Flask, request, abort, blueprints
-from flask_restful import Api
+from flask import Flask, request, abort
 from telebot.types import Update
+from telebot import TeleBot
 from webshop.api.products import blue_products, blue_products_post
 from webshop.api.category import blue_category, blue_category_post
 
 app = Flask(__name__)
+bot = TeleBot(config.TOKEN)
 
 
 @app.route(config.WEBHOOK_PATH, methods=['POST'])
