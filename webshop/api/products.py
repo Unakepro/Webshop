@@ -8,12 +8,6 @@ from bson.objectid import ObjectId
 
 blue_products = Blueprint("products", __name__)
 blue_products_post = Blueprint("post_products", __name__)
-main_page = Blueprint("main", __name__)
-
-
-@blue_products.route("/")
-def hi():
-    return "Hello"
 
 
 @blue_products.route("/tg/product/<name>", methods=('GET', 'PUT', 'DELETE'))

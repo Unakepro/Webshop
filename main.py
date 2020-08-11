@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     app.register_blueprint(blue_products)
     app.register_blueprint(blue_category)
-    app.register_blueprint(blue_products_post, url_prefix='/tg/hello')
+    app.register_blueprint(blue_products_post)
     app.register_blueprint(blue_category_post)
 
     bot.remove_webhook()
