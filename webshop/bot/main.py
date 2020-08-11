@@ -146,7 +146,6 @@ def my_cart(message):
 
                 bot.send_photo(message.chat.id, res, caption=f'{product[0].title}\n\n'
                                                              f'{product[0].description}\n\n'
-                                                             f'{Category.objects(title="Routers")[0].id}'
                                                              f'Количество товаров: {value}\n'
                                                              f'Цена без скидки: {product[0].price}\n\n'
                                                              f'Цена со скидкой: {price}\n', reply_markup=kb)
