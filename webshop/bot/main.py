@@ -87,7 +87,6 @@ def sales(message):
         price = discount[i].price * (100 - discount[i].discount) / 100
         bot.send_photo(message.chat.id, res, caption=f'{discount[i].title}\n\n'
                                                      f'{discount[i].description}\n'
-                                                     f'{discount[i].id}'
                                                      f'Цена без скидки: {discount[i].price}\n\n'
                                                      f'Цена со скидкой: {price}\n', reply_markup=kb)
 
@@ -147,6 +146,7 @@ def my_cart(message):
 
                 bot.send_photo(message.chat.id, res, caption=f'{product[0].title}\n\n'
                                                              f'{product[0].description}\n\n'
+                                                             f'{Category.objects(title="Routers")[0].id}'
                                                              f'Количество товаров: {value}\n'
                                                              f'Цена без скидки: {product[0].price}\n\n'
                                                              f'Цена со скидкой: {price}\n', reply_markup=kb)
