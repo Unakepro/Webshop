@@ -87,6 +87,7 @@ def sales(message):
         price = discount[i].price * (100 - discount[i].discount) / 100
         bot.send_photo(message.chat.id, res, caption=f'{discount[i].title}\n\n'
                                                      f'{discount[i].description}\n'
+                                                     f'{discount[i].id}'
                                                      f'Цена без скидки: {discount[i].price}\n\n'
                                                      f'Цена со скидкой: {price}\n', reply_markup=kb)
 
@@ -223,7 +224,7 @@ def minus_one(call):
                                       show_alert=False)
     except:
         bot.answer_callback_query(callback_query_id=call.id, text="Товара нет в корзине",
-                                 show_alert=False)
+                                  show_alert=False)
 
 
 @bot.callback_query_handler(func=lambda call: call.data == "done")
