@@ -189,6 +189,8 @@ def delete_item(call):
     product_id = product_id[0:-7]
 
     MyCart.objects(product_id=product_id).delete()
+    bot.answer_callback_query(callback_query_id=call.id, text="Товар удален из корзины",
+                              show_alert=False)
 
 
 @bot.callback_query_handler(func=lambda call: call.data == "delete_cart")
@@ -196,22 +198,28 @@ def delete_cart(call):
     res = MyCart.objects(user_id=call.from_user.id)
 
     res.delete()
+    bot.answer_callback_query(callback_query_id=call.id, text="Корзина пуста",
+                              show_alert=True)
 
 
 @bot.callback_query_handler(func=lambda call: call.data.endswith("_+1"))
 def add_one(call):
     add_id = call.data[0:-3]
     MyCart.objects(product_id=add_id).update(inc__value=1)
+    bot.answer_callback_query(callback_query_id=call.id, text="Товара на 1 больше",
+                              show_alert=False)
 
 
 @bot.callback_query_handler(func=lambda call: call.data.endswith("_-1"))
 def minus_one(call):
     add_id = call.data[0:-3]
     if MyCart.objects(product_id=add_id)[0].value < 1:
-        pass
+        bot.answer_callback_query(callback_query_id=call.id, text="Товара нет в корзине",
+                                  show_alert=False)
     else:
         MyCart.objects(product_id=add_id).update(dec__value=1)
-
+        bot.answer_callback_query(callback_query_id=call.id, text="Товара на 1 меньше",
+                              show_alert=False)
 
 @bot.callback_query_handler(func=lambda call: call.data == "done")
 def save_cart(call):
