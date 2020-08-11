@@ -7,6 +7,9 @@ from webshop.api.category import blue_category, blue_category_post
 
 app = Flask(__name__)
 
+@app.route('/tg/lol')
+def h():
+    return "g"
 
 @app.route(config.WEBHOOK_PATH, methods=['POST'])
 def webhook():
@@ -34,4 +37,4 @@ if __name__ == '__main__':
         config.WEBHOOK_URL,
         certificate=open('webhook_cert.pem', 'r')
     )
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True)
