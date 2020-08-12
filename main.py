@@ -18,14 +18,14 @@ def webhook():
     else:
         abort(403)
 
+app.register_blueprint(blue_products)
+app.register_blueprint(blue_category)
+app.register_blueprint(blue_products_post)
+app.register_blueprint(blue_category_post)
 
 if __name__ == '__main__':
     import time
 
-    app.register_blueprint(blue_products)
-    app.register_blueprint(blue_category)
-    app.register_blueprint(blue_products_post)
-    app.register_blueprint(blue_category_post)
 
     bot.remove_webhook()
     time.sleep(1)
