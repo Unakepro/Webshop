@@ -4,6 +4,7 @@ from flask import Flask, request, abort
 from telebot.types import Update
 from webshop.api.products import blue_products, blue_products_post
 from webshop.api.category import blue_category, blue_category_post
+import time
 
 app = Flask(__name__)
 
@@ -24,8 +25,6 @@ app.register_blueprint(blue_products_post)
 app.register_blueprint(blue_category_post)
 
 if __name__ == '__main__':
-    import time
-
 
     bot.remove_webhook()
     time.sleep(1)
