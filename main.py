@@ -24,7 +24,7 @@ app.register_blueprint(blue_products_post)
 app.register_blueprint(blue_category_post)
 
 if __name__ == '__main__':
-    import time
+    #import time
 
 
     bot.remove_webhook()
