@@ -41,7 +41,10 @@ python3 main.py
 
 ## Demonstration
 
-![DEMO!](readme-assets/Demo.mov)
+
+https://github.com/Unakepro/telebot/assets/68908289/705b4475-2c8c-4a1f-878c-422cb874fd88
+
+
 
 
 ## License
