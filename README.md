@@ -39,6 +39,11 @@ Now the only step is run webshop.
 python3 main.py
 ```
 
+## Demonstration
+
+![DEMO!](readme-assets/Demo.mov)
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
