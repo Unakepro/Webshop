@@ -23,7 +23,9 @@ pip3 install -r requirements.txt
 Create token using [BotFather](https://telegram.me/BotFather)
 
 Now you need to create your telegram token and put it inside config.py.
-![CONFIG!](readme-assets/config.png)
+
+![config](https://github.com/Unakepro/telebot/assets/68908289/5826a67c-632b-4b41-9639-518b9877a9a9)
+
 
 Now they only step is to seed our database. In webshop mongodb is used, so make sure it's pre-installed on your pc.
 
